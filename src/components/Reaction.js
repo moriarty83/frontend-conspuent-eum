@@ -1,41 +1,41 @@
-import { useState } from "react";
+import useParams from 'react-router-dom'
 import { Button } from '@mui/material';
-import Reactions from "../models/Reactions";
+import Reactions from "../models/Reaction";
 
 function Reaction(props){
-    const [reaction, setReaction] = useState("")
+
+  const videoId = props.videoId
 
     function handleSubmit(event) {
+    // const params = useParams()
 		event.preventDefault();
-		Reactions.newReaction({text}).then((data) => {
-			console.log(data);
+		Reactions.reaction({videoId}).then((data) => {
+		
+      console.log('COMPONENT', data);
 			// localStorage.setItem("uid", data.token)
 
-			if (data.status === 201) {
-				console.log(data.status)
-                setNewComment(data.createdComment.text)
-			}
+			// if (data.status === 201) {
+			// 	console.log(data.status)
+      //           // setNewReaction(data.createdReaction)
+			// }
 		})
 	}
 
     return(
         <>
-        <form className="userEntryForm" onSubmit={handleSubmit}>
-            <div className='form-group'>
-                <TextField id="outlined-basic" 
-                    label="Comment" 
-                    variant="outlined" 
-                    onChange={(e) => setText(e.target.value)} 
-                    value={text}
-                    required
-                />	
-            </div>
-            <Button type='submit' variant="outlined">Leave Comment</Button>
-			</form>
+          <Button onClick={handleSubmit} variant="outlined">Like</Button>
+          {/* <Button id="outlined-basic" 
+              type="submit"
+              variant="outlined" 
+              onChange={(e) => setText(e.target.value)} 
+              value={text}
+              required
+          >
+          Like</Button> */}
 
-            <p>{newComment}</p>
+            {/* <p>{newComment}</p> */}
         </>
     )
 }
 
-export default Comment
+export default Reaction

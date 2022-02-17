@@ -1,16 +1,18 @@
-const url = 'http://localhost:4000/api/v1/';
+const url = 'http://localhost:4000/api/v1/reactions';
 
-class Reaction {
+class Reactions {
   static reaction = (data) => {
-    return fetch(`${url}/reactions`, {
+    return fetch(`${url}`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
             authorization: `Bearer ${localStorage.uid}`
         },
         body: JSON.stringify(data),
-    }).then((res) => res.json());
+    }).then((res) => 
+    {console.log(res.json())
+      res.json()});
   }
 }
 
-export default Reaction
+export default Reactions
