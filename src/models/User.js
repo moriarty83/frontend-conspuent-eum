@@ -2,6 +2,7 @@ const url = 'http://localhost:4000/api/v1/';
 
 class User {
   static register = (data) => {
+      console.log("running register")
     return fetch(`${url}/register`, {
         method: "POST",
         headers: {
@@ -36,10 +37,12 @@ class User {
         // credentials: "include",
         method: 'PUT',
         headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${localStorage.uid}`,
-        },
-        body: JSON.stringify(data)
-    }).then((res) => res.json());
+                "Content-Type": "application/json",
+                authorization: `Bearer ${localStorage.uid}`,
+            },
+            body: JSON.stringify(data)
+        }).then((res) => res.json());
+    }
 }
-}
+
+export default User;
