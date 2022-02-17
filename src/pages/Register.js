@@ -3,10 +3,11 @@ import User from '../models/User';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import TextField from '@mui/material/Textfield';
+import { TextField } from '@mui/material';
+// import TextField from '@mui/material/Textfield';
 import { useFormControl } from '@mui/material/FormControl';
 
-const Register = () => {
+const NewUser = () => {
 	const [firstname, setFirstName] = useState("");
 	const [lastname, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -79,4 +80,4 @@ const Register = () => {
 	);
 }
 
-export default Register;
+export default NewUser;
