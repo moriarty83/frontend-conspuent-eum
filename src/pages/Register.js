@@ -2,30 +2,31 @@ import { useState } from 'react';
 import User from '../models/User';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import { TextField } from '@mui/material';
+// import Button from '@mui/material/Button';
+import { TextField, Button } from '@mui/material';
+
 // import TextField from '@mui/material/Textfield';
 import { useFormControl } from '@mui/material/FormControl';
 
 const NewUser = () => {
-	const [firstname, setFirstName] = useState("");
-	const [lastname, setLastName] = useState("");
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
   const [nickname, setNickname] = useState("");
 
 	const nav = useNavigate();
-
+  
 	function handleSubmit(event) {
 		event.preventDefault();
-		User.register({firstname, lastname, email, password, nickname}).then((data) => {
+		User.register({firstName, lastName, email, password, nickname}).then((data) => {
 			console.log(data);
 			console.log(data.token);
 			// localStorage.setItem("uid", data.token)
 
 			if (data.status === 200) {
 				localStorage.setItem("uid", data.token);
-				nav("/profile");
+				nav("/dashboard");
 				window.location.reload();
 			}
 		})
@@ -36,42 +37,48 @@ const NewUser = () => {
 			<form className="userEntryForm" onSubmit={handleSubmit}>
 				<div className='form-group'>
           <TextField id="outlined-basic" 
-            label="Outlined" 
+            label="First Name" 
             variant="outlined" 
             onChange={(e) => setFirstName(e.target.value)} 
-            value={firstname}
+            value={firstName}
+            required
           />
 				</div>
 				<div className='form-group'>
           <TextField id="outlined-basic" 
-            label="Outlined" 
+            label="Last Name" 
             variant="outlined" 
             onChange={(e) => setLastName(e.target.value)} 
-            value={lastname}
+            value={lastName}
+            required
           />
 				</div>
         <div className='form-group'>
           <TextField id="outlined-basic" 
-            label="Outlined" 
+            label="Nickname" 
             variant="outlined" 
             onChange={(e) => setNickname(e.target.value)} 
             value={nickname}
+            required
           />
 				</div>
         <div className='form-group'>
           <TextField id="outlined-basic" 
-            label="Outlined" 
+            label="Email" 
             variant="outlined" 
             onChange={(e) => setEmail(e.target.value)} 
             value={email}
+            required
           />
 				</div>
 				<div className='form-group'>
         <TextField id="outlined-basic" 
-            label="Outlined" 
+            label="Password" 
             variant="outlined" 
             onChange={(e) => setPassword(e.target.value)} 
             value={password}
+            required
+            type="password"
           />
 				</div>
         <Button type='submit' variant="outlined">Create Profile</Button>
