@@ -1,12 +1,16 @@
 
 import './App.css';
 import PageRouter from './PageRouter';
+import MenuAppBar from './components/MenuAppBar';
+import Footer from './components/Footer'
+
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <MenuAppBar />
       <PageRouter />
+      <Footer />
     </div>
   );
 }

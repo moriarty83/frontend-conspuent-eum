@@ -1,11 +1,12 @@
 import React, { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom'
-// import Comment from '../components/Comment';
 import Reaction from '../components/Reaction';
 import { useParams } from "react-router-dom";
 import NewComment from '../components/NewComment';
 import EditComment from '../components/EditComment';
+import VideoIndex from '../components/VideoIndex';
+import VideoShow from '../components/videoShow';
 
 function Lesson (props){
     const { id } = useParams()
