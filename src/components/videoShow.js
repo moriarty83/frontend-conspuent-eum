@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import NewComment from '../components/NewComment'
 
 function VideoShow(props){
+    const [commentCount, setCommentCount] = useState()
     const [video, setVideo] = useState();
 
 
@@ -24,10 +25,10 @@ function VideoShow(props){
     const [comments, setComments] = useState([]);
 
     const videoId = props.videoId;
-    console.log(videoId);
+
   useEffect(function() {
       fetchVideo(videoId);
-  }, []);
+  }, [commentCount]);
 
   function fetchVideo(id) {
 		Video.videoShow(id).then((data) => {
@@ -43,6 +44,7 @@ function VideoShow(props){
       setSectionNumber(data.video.sectionNumber);
       setCourseNumber(data.video.courseNumber);
 
+      setCommentCount(data.comments.length)
       setComments(flattenComments(data.comments))
 		})
 	}
@@ -101,14 +103,14 @@ function VideoShow(props){
         </Typography>
       </CardContent>
       <CardActions>
-        <NewComment />
+        <NewComment videoId={videoId} commentCount={commentCount} setCommentCount={setCommentCount}/>
       </CardActions>
     </Card>
 
       <Typography gutterBottom variant="h5" component="div">
         Comments
         </Typography>
-                    <CommentTableView title="Comments" filter="responseTo" rowNames={[...new Set(comments.map(item => item["author.nickname"]))]} data={comments}/>
+        <CommentTableView title="Comments" filter="responseTo" rowNames={[...new Set(comments.map(item => item["author.nickname"]))]} data={comments} />
 
         </>
     )
