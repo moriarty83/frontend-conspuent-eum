@@ -17,7 +17,6 @@ function VideoIndex(){
 	}
 
   function generateVideoList(input) {
-    
       console.log(input);
       return (
         <ul>
@@ -26,9 +25,7 @@ function VideoIndex(){
           })}
         </ul>
       )
-    
   }
-  console.log(typeof videos);
 
     return(
         <>
