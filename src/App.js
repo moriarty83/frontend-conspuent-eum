@@ -1,11 +1,12 @@
 
 import './App.css';
 import PageRouter from './PageRouter';
+import MenuAppBar from './components/MenuAppBar';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello World</h1>
+      <MenuAppBar />
       <PageRouter />
     </div>
   );
