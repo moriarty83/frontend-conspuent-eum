@@ -3,6 +3,13 @@ import { TextField, Button } from '@mui/material';
 import Video from "../models/Video";
 import ReactPlayer from 'react-player';
 import CommentTableView from "./CommentTable";
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import NewComment from '../components/NewComment'
 
 function VideoShow(props){
     const [video, setVideo] = useState();
@@ -65,32 +72,44 @@ function VideoShow(props){
     }
     return result;
 };
- 
-
-  
-  // const flattened = flattenObj(obj)
 
   console.log(url);
-  // function generateVideoList(input) {
-  //     console.log(input);
-  //     return (
-  //       <ul>
-  //         {input.map(video => {
-  //           return <li>{video.instructor}</li>
-  //         })}
-  //       </ul>
-  //     )
-  // }
+
 
     return(
         <>
-        <ReactPlayer controls={true} volume={0.5} url={url} />
+        {/* <ReactPlayer controls={true} volume={0.5} url={url} />
           <p>{title}</p>
           <p>{category}</p>
-          <p>{instructor}</p>
-          <CommentTableView title="Comments" filter="responseTo" rowNames={[...new Set(comments.map(item => item["author.nickname"]))]} data={comments}/>
+          <p>{instructor}</p> */}
 
-          
+          <Card sx={{ maxWidth: 345 }}>
+      {/* <CardMedia
+        component="img"
+        height="140"
+        image="/static/images/cards/contemplative-reptile.jpg"
+        alt="green iguana"
+      /> */}
+      <ReactPlayer width="320" controls={true} volume={0.5} url={url} />
+
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+        {title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {instructor}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <NewComment />
+      </CardActions>
+    </Card>
+
+      <Typography gutterBottom variant="h5" component="div">
+        Comments
+        </Typography>
+                    <CommentTableView title="Comments" filter="responseTo" rowNames={[...new Set(comments.map(item => item["author.nickname"]))]} data={comments}/>
+
         </>
     )
 }
