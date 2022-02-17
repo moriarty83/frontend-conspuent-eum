@@ -7,15 +7,18 @@ function Comment(props){
     const [newComment, setNewComment] = useState("")
     
     const videoId = props.videoId
-
+    console.log("vid id" + videoId)
     function handleSubmit(event) {
 		event.preventDefault();
 		Comments.newComment({text, videoId}).then((data) => {
-			console.log(data);
+			console.log("New comment:" + data);
 			// localStorage.setItem("uid", data.token)
 
 			if (data.status === 201) {
                 setNewComment(data.createdComment.text)
+                const newCount = props.commentCount + 1;
+                props.setCommentCount(newCount)
+                
 			}
 		})
 	}
@@ -34,8 +37,6 @@ function Comment(props){
             </div>
             <Button type='submit' variant="outlined">Leave Comment</Button>
 			</form>
-
-            <p>{newComment}</p>
         </>
     )
 }
