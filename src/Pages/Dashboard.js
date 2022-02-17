@@ -2,12 +2,12 @@ import React, { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {Routes, Route} from 'react-router-dom'
 
-function LessonDash (props){
+function Dashboard (props){
     return(
         <>
-            <h1>Lesson Dash Page</h1>
+            <h1>Dashboard Page</h1>
         </>
     )
 }
 
-export default LessonDash
+export default Dashboard
