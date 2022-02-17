@@ -29,7 +29,7 @@ const Login = () => {
             <form className='userEntryForm' onSubmit={handleSubmit}>
                 <div className='form-group'>
                 <TextField id="outlined-basic" 
-                    label="Outlined" 
+                    label="Email" 
                     variant="outlined" 
                     onChange={(e) => setEmail(e.target.value)} 
                     value={email}
@@ -37,7 +37,7 @@ const Login = () => {
 				        </div>
                 <div className='form-group'>
                 <TextField id="outlined-basic" 
-                    label="Outlined" 
+                    label="Password" 
                     variant="outlined" 
                     onChange={(e) => setPassword(e.target.value)} 
                     value={password}
