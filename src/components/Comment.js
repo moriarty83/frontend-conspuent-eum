@@ -5,15 +5,16 @@ import Comments from "../models/Comments";
 function Comment(props){
     const [text, setText] = useState("")
     const [newComment, setNewComment] = useState("")
+    
+    const videoId = props.videoId
 
     function handleSubmit(event) {
 		event.preventDefault();
-		Comments.newComment({text}).then((data) => {
+		Comments.newComment({text, videoId}).then((data) => {
 			console.log(data);
 			// localStorage.setItem("uid", data.token)
 
 			if (data.status === 201) {
-				console.log(data.status)
                 setNewComment(data.createdComment.text)
 			}
 		})
