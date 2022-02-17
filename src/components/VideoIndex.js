@@ -21,9 +21,11 @@ function VideoIndex(){
   function generateVideoList(input) {
       console.log(input);
       return (
+
         <>
           <TableView title="Lessons" filter="category" rowNames={[...new Set(videos.map(item => item.category))]} data={videos}/>
         </>
+
       )
   }
 
