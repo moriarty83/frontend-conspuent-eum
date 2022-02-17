@@ -7,7 +7,7 @@ import { useParams } from "react-router-dom";
 import NewComment from '../components/NewComment';
 import EditComment from '../components/EditComment';
 import VideoIndex from '../components/VideoIndex';
-import VideoShow from '../components/videoShow';
+import VideoShow from '../components/VideoShow';
 
 function Lesson (props){
     const { id } = useParams()
