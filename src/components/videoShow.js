@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { TextField, Button } from '@mui/material';
 import Video from "../models/Video";
+import ReactPlayer from 'react-player';
 
 function VideoShow(props){
 
@@ -16,7 +17,7 @@ function VideoShow(props){
     console.log(videoId);
   useEffect(function() {
       fetchVideo(videoId);
-  }, );
+  }, []);
 
   function fetchVideo(id) {
 		Video.videoShow(id).then((data) => {
@@ -48,8 +49,8 @@ function VideoShow(props){
 
     return(
         <>
+        <ReactPlayer controls={true} volume={0.5} muted={true} url={url} />
           <p>{title}</p>
-          <p>{url}</p>
           <p>{category}</p>
           <p>{instructor}</p>
         </>
