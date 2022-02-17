@@ -33,6 +33,7 @@ const Login = () => {
                     variant="outlined" 
                     onChange={(e) => setEmail(e.target.value)} 
                     value={email}
+                    required
                 />
 				        </div>
                 <div className='form-group'>
@@ -41,6 +42,8 @@ const Login = () => {
                     variant="outlined" 
                     onChange={(e) => setPassword(e.target.value)} 
                     value={password}
+                    required
+                    type="password"
                 />
 			        	</div>
                 <Button type='submit' variant="outlined">Login</Button>
