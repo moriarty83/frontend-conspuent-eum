@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import {Routes, Route, Link} from 'react-router-dom'
 import { Button } from '@mui/material';
+import Footer from '../components/Footer'
 
 function Landing (props){
     
@@ -23,6 +24,7 @@ function Landing (props){
 
             <Button onClick={handleRegisterSubmit} variant="outlined">Register</Button>
             <Button onClick={handleLoginSubmit} variant="outlined">Login</Button>
+            
         </>
     )
 }
