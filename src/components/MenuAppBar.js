@@ -11,14 +11,24 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
+  const nav = useNavigate();
+
   const handleChange = (event) => {
     setAuth(event.target.checked);
   };
+
+  const Logout = () => {
+    localStorage.removeItem("uid")
+    handleClose();
+    nav("/");
+    window.location.reload();
+  }
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -53,7 +63,9 @@ export default function MenuAppBar() {
                 aria-haspopup="true"
                 color="inherit"
               >
-                <AccountCircle />
+                <Link style={{ textDecoration: 'none', color: 'white' }} to={`/dashboard`}>
+                  <AccountCircle />
+                </Link>
               </IconButton>
               <Menu
                 id="menu-appbar"
@@ -70,9 +82,28 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Dashboard</MenuItem>
-                <MenuItem onClick={handleClose}>About</MenuItem>
-                <MenuItem onClick={handleClose}>Contact</MenuItem>
+                {localStorage.getItem("uid") === null ?
+                  <div>
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={`/register`}>
+                      <MenuItem onClick={handleClose}>Register</MenuItem>
+                    </Link>  
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={`/login`}>
+                      <MenuItem onClick={handleClose}>Login</MenuItem>
+                    </Link> 
+                    <MenuItem onClick={handleClose}>About</MenuItem>
+                    <MenuItem onClick={handleClose}>Contact</MenuItem>
+                  </div>
+                  : 
+                  <div>
+                    <Link style={{ textDecoration: 'none', color: 'black' }} to={`/dashboard`}>
+                      <MenuItem onClick={handleClose}>Dashboard</MenuItem>
+                    </Link> 
+                    <MenuItem onClick={Logout}>Logout</MenuItem>
+                    <MenuItem onClick={handleClose}>About</MenuItem>
+                    <MenuItem onClick={handleClose}>Contact</MenuItem>
+                  </div>
+                }
+                
               </Menu>
             </div>
           
