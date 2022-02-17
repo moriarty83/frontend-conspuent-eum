@@ -12,3 +12,5 @@ class Reaction {
     }).then((res) => res.json());
   }
 }
+
+export default Reaction
