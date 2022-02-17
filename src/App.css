@@ -1,5 +1,55 @@
+h1, h2, h3, h4, h5 {
+  color: #064750;
 
+  transition: .5s;
+}
+  
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover {
+  color: #E8F259;
+  transition: .5s;
+  /* background-color: #E8F259; */
+  font-weight: 900;
+  }
 
+button {
+  color: white;
+  padding: 32px;
+  /* background-color: #064750; */
+  font-size: 24px;
+  transition: .5s;
+  border-radius: 32px;
+}
+  
+button:hover {
+  color: black;
+  border-radius: 22px;
+  transition: .5s;
+  background-color: #E8F259;
+  border: 2px;
+  border-color: #064750;
+  font-weight: 900;
+  }
+
+  .css-1t29gy6-MuiToolbar-root  {
+  background: #064750;
+}
+
+.css-16lloyr-MuiBottomNavigation-root {
+  background: #064750
+}
+
+.css-1t6e9jv-MuiCardActions-root.border{
+  font-size: 1.6rem;
+  display: grid;
+  place-items: center;
+  min-height: 200px;
+  border: 8px solid;
+  padding: 1rem;
+}
+
+.css-1t6e9jv-MuiCardActions-root.full {
+    border-image: linear-gradient(45deg, #064750, #E8F259) 1;
+}
 
 .App {
   text-align: center;
