@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import NewComment from '../components/NewComment';
 import EditComment from '../components/EditComment';
 import VideoIndex from '../components/VideoIndex';
-import VideoShow from '../components/VideoShow';
+import VideoShow from '../components/videoShow';
 
 function Lesson (props){
     const { id } = useParams()
@@ -14,12 +14,12 @@ function Lesson (props){
         <>
             <h1>Lesson Page</h1>
             
-            <Reaction videoId={ id } />
+            {/* <Reaction videoId={ id } />
 
-            <NewComment videoId={id} />
-            <EditComment commentId="620dcf27c24c986e66836f0c" />
+            <NewComment videoId={id} /> */}
+            {/* <EditComment commentId="620dcf27c24c986e66836f0c" /> */}
             <VideoShow videoId={id} />
-            <VideoIndex />
+            {/* <VideoIndex /> */}
         </>
     )
 }
