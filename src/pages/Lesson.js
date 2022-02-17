@@ -13,15 +13,12 @@ function Lesson (props){
         <>
             <h1>Lesson Page</h1>
             
-             // Jared section
-            <Reaction videoId={ id } />
-            <Comment />
-            // End Jared section
-      
-            // dev section
-            <NewComment videoId={id} />
-            <EditComment commentId="620dcf27c24c986e66836f0c" />
-            // end dev section
+            {/* <Reaction videoId={ id } />
+
+            <NewComment videoId={id} /> */}
+            {/* <EditComment commentId="620dcf27c24c986e66836f0c" /> */}
+            <VideoShow videoId={id} />
+            {/* <VideoIndex /> */}
         </>
     )
 }
