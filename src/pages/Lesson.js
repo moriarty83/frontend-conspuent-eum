@@ -12,7 +12,7 @@ function Lesson (props){
         <>
             <h1>Lesson Page</h1>
             <NewComment videoId={id} />
-            <EditComment commentId="620dcf27c24c986e66836f0c" />
+            <EditComment commentId="620ddc29b39017837642db0f" />
         </>
     )
 }
