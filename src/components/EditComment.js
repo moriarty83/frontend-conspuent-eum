@@ -2,41 +2,52 @@ import { useState } from "react";
 import { TextField, Button } from '@mui/material';
 import Comments from "../models/Comments";
 
-function Comment(props){
+function EditComment(props){
     const [text, setText] = useState("")
     const [newComment, setNewComment] = useState("")
+    
+    const id = props.commentId
 
     function handleSubmit(event) {
 		event.preventDefault();
-		Comments.newComment({text}).then((data) => {
+		Comments.editComment({text}, id).then((data) => {
 			console.log(data);
 			// localStorage.setItem("uid", data.token)
 
-			if (data.status === 201) {
-				console.log(data.status)
-                setNewComment(data.createdComment.text)
+			if (data.status === 200) {
+                setNewComment(data.updatedComment.text)
 			}
 		})
 	}
+
+    function handleDelete(){
+		Comments.deleteComment(id).then((data) => {
+			if (data.status === 200) {
+                setNewComment(data.updatedComment.text)
+			}
+		})
+    }
 
     return(
         <>
         <form className="userEntryForm" onSubmit={handleSubmit}>
             <div className='form-group'>
                 <TextField id="outlined-basic" 
-                    label="Comment" 
+                    label="Edit Comment" 
                     variant="outlined" 
                     onChange={(e) => setText(e.target.value)} 
                     value={text}
                     required
                 />	
             </div>
-            <Button type='submit' variant="outlined">Leave Comment</Button>
+            <Button type='submit' variant="outlined">Submit</Button>
 			</form>
+
+            <Button onClick={handleDelete} variant="outlined">Delete</Button>
 
             <p>{newComment}</p>
         </>
     )
 }
 
-export default Comment
+export default EditComment
