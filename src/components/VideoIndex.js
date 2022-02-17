@@ -21,7 +21,7 @@ function VideoIndex(){
       return (
         <ul>
           {input.map(video => {
-            return <li>{video.instructor}</li>
+            return (<li>{video.instructor}</li>)
           })}
         </ul>
       )

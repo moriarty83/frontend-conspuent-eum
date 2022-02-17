@@ -4,7 +4,7 @@ import Video from "../models/Video";
 import ReactPlayer from 'react-player';
 
 function VideoShow(props){
-
+    const [video, setVideo] = useState();
     const [title, setTitle] = useState();
     const [url, setUrl] = useState();
     const [category, setCategory] = useState();
@@ -49,7 +49,7 @@ function VideoShow(props){
 
     return(
         <>
-        <ReactPlayer controls={true} volume={0.5} muted={true} url={url} />
+        <ReactPlayer controls={true} volume={0.5} url={url} />
           <p>{title}</p>
           <p>{category}</p>
           <p>{instructor}</p>
