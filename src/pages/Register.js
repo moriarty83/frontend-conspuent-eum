@@ -6,7 +6,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/Textfield';
 import { useFormControl } from '@mui/material/FormControl';
 
-const NewUser = () => {
+const Register = () => {
 	const [firstname, setFirstName] = useState("");
 	const [lastname, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -79,4 +79,4 @@ const NewUser = () => {
 	);
 }
 
-export default NewUser;
+export default Register;
