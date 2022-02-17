@@ -24,7 +24,7 @@ const NewUser = () => {
 
 			if (data.status === 200) {
 				localStorage.setItem("uid", data.token);
-				nav("/profile");
+				nav("/dashboard");
 				window.location.reload();
 			}
 		})
