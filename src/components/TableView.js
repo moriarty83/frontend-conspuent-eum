@@ -67,7 +67,7 @@ function Row(props) {
                   {row.history.map((historyRow) => (
                     <TableRow key={historyRow.date}>
                       <TableCell component="th" scope="row">
-                        <a href={historyRow._id}>{historyRow.title}</a>
+                        <a href={"lessons/" + historyRow._id}>{historyRow.title}</a>
                       </TableCell>
                       <TableCell>{historyRow.instructor}</TableCell>
                     </TableRow>

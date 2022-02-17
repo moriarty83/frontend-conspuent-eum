@@ -1,4 +1,4 @@
-const url = 'http://localhost:4000/api/v1/comments';
+const url = 'https://outtapocket-backend.herokuapp.com/api/v1/comments';
 
 class Comments{
 
