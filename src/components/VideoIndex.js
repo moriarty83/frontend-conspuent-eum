@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { TextField, Button } from '@mui/material';
 import Video from "../models/Video";
 
+import TableView from "./TableView";
+
 function VideoIndex(){
     const [videos, setVideos] = useState([]);
 
@@ -19,17 +21,15 @@ function VideoIndex(){
   function generateVideoList(input) {
       console.log(input);
       return (
-        <ul>
-          {input.map(video => {
-            return <li>{video.instructor}</li>
-          })}
-        </ul>
+        <>
+          <TableView title="Lessons" filter="category" rowNames={[...new Set(videos.map(item => item.category))]} data={videos}/>
+        </>
       )
   }
 
     return(
         <>
-          {generateVideoList(videos)}
+          {videos ? generateVideoList(videos) : <p>Loading Videos</p>}
         </>
     )
 }

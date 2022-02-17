@@ -53,6 +53,7 @@ function VideoShow(props){
           <p>{title}</p>
           <p>{category}</p>
           <p>{instructor}</p>
+          
         </>
     )
 }
