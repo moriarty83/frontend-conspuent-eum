@@ -3,6 +3,7 @@ import { TextField, Button } from '@mui/material';
 import Video from "../models/Video";
 import ReactPlayer from 'react-player';
 import CommentTableView from "./CommentTable";
+import TableView from "./TableView";
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -111,7 +112,7 @@ function VideoShow(props){
         Comments
         </Typography>
         <CommentTableView title="Comments" filter="responseTo" rowNames={[...new Set(comments.map(item => item["author.nickname"]))]} data={comments} />
-
+        <TableView title="Comments" subtitle="Replies" filter="responseTo" rowNames={[...new Set(comments.map((item) => {return item["author.nickname"]}))]} data={comments} />
         </>
     )
 }

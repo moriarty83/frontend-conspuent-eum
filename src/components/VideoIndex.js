@@ -23,7 +23,7 @@ function VideoIndex(){
       return (
 
         <>
-          <TableView title="Lessons" filter="category" rowNames={[...new Set(videos.map(item => item.category))]} data={videos}/>
+          <TableView title="Lessons" subtitle="Sections" filter="category" rowNames={[...new Set(videos.map(item => item.category))]} data={videos}/>
         </>
 
       )

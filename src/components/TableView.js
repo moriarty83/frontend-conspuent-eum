@@ -29,7 +29,7 @@ function createData(name, data) {
 }
 
 function Row(props) {
-  const { row } = props;
+  const { row, subtitle } = props;
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -54,7 +54,7 @@ function Row(props) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                Lessons
+                {subtitle}
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
@@ -127,7 +127,7 @@ function TableView(props) {
         </TableHead>
         <TableBody>
           {rows.map((row, index) => (
-            <Row key={index} row={row} />
+            <Row key={index} row={row} subtitle={props.subtitle} />
           ))}
         </TableBody>
       </Table>
